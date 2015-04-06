@@ -4,6 +4,12 @@ Various munin plugins for condor
 
 To install, git clone this project and create symlink in /etc/munin/plugins to various plugin scripts (like condor_schedd) inside the git root directory. 
 
+Ater installing the plugin, you then need to reload your munin-node
+
+```
+sudo /etc/init.d/munin-node reload
+```
+
 ## condor_schedd
 
 Monitors number of jobs running, idle, etc.. (just looks at /var/lib/condor-cron/spool/.schedd_classad)
