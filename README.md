@@ -1,7 +1,7 @@
 # munin-plugin-condor
 various munin plugins for condor
 
-* schedd_classad (/var/lib/condor-cron/spool/.schedd_classad)
+## schedd_classad (/var/lib/condor-cron/spool/.schedd_classad)
 
 Monitors number of jobs running, idle, etc.. 
 
