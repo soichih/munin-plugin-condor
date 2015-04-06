@@ -1,11 +1,14 @@
 # munin-plugin-condor
-various munin plugins for condor
 
-## schedd_classad (/var/lib/condor-cron/spool/.schedd_classad)
+Various munin plugins for condor
 
-Monitors number of jobs running, idle, etc.. 
+To install, git clone this project and create symlink in /etc/munin/plugins to various plugin scripts (like condor_schedd) inside the git root directory. 
 
-To install, just git clone this project, and create symlink from /etc/munin/plubins directory. By default, it monitors /var/lib/condor/spool/.schedd_classad and a few attrbitues. Create a config file inside /etc/munin/plugin-conf.d to configre.
+## condor_schedd
+
+Monitors number of jobs running, idle, etc.. (just looks at /var/lib/condor-cron/spool/.schedd_classad)
+
+By default, it monitors /var/lib/condor/spool/.schedd_classad and a few attrbitues. Create a config file inside /etc/munin/plugin-conf.d to configre.
 
 [/etc/munin/plugin-conf.d/munin-plugin-condor]
 ```
