@@ -1,0 +1,48 @@
+#!/usr/bin/node
+var fs = require('fs');
+
+//location of .schedd_classad to monitor
+var classad_path = "/var/lib/condor/spool/.schedd_classad";
+if(process.env.classad_path) {
+    classad_path = process.env.classad_path;
+}
+//list of attributes to graph
+var classad_attrs = "TotalLocalJobsRunning,TotalLocalJobsIdle";
+if(process.env.classad_attrs) {
+    classad_attrs = process.env.classad_attrs;
+}
+//console.dir(process.env);
+
+classad_attrs = classad_attrs.split(",");
+
+mode=process.argv[2];
+switch(mode) {
+    case "config": 
+        config(); 
+        break;
+    default: print();
+}
+
+function config() {
+    console.log("graph_title Condor .schedd_classad");
+    console.log("graph_vlabel Jobs");
+    classad_attrs.forEach(function(attr) {
+        //TODO - maybe I should do something bit more friently..
+        console.log(attr+".label "+attr);
+    });
+}
+
+function print() {
+    fs.readFile(classad_path, "utf8", function(err, content) {
+        var lines = content.split("\n");
+        var attrs = {};
+        lines.forEach(function(line) {
+                var tokens = line.split(" = ");
+                attrs[tokens[0]] = tokens[1];
+        });
+        classad_attrs.forEach(function(attr) {
+            console.log(attr+".value "+attrs[attr]);
+        });
+    });
+}
+
