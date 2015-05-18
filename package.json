@@ -1,0 +1,21 @@
+{
+  "name": "munin-plugin-condor",
+  "version": "0.0.0",
+  "description": "Various munin plugins for condor",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/soichih/munin-plugin-condor.git"
+  },
+  "author": "Soichi Hayashi <hayashis@iu.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soichih/munin-plugin-condor/issues"
+  }
+}
